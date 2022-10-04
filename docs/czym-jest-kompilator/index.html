@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>Czym jest kompilator?</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/built/screen.css?v=17c3a40496" />
+
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107667810-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-107667810-1');
+    </script>
+
+    <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+    <link rel="canonical" href="https://blog.raibay.com/czym-jest-kompilator/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    <link rel="amphtml" href="https://blog.raibay.com/czym-jest-kompilator/amp/" />
+    
+    <meta property="og:site_name" content="IT BAY News" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Czym jest kompilator?" />
+    <meta property="og:description" content="Ojczystym językiem komputerów jest język binarny niezrozumiały dla człowieka. Człowiek programuje w językach programowania, których nie rozumie komputer. Jak się zatem porozumieć?" />
+    <meta property="og:url" content="https://blog.raibay.com/czym-jest-kompilator/" />
+    <meta property="og:image" content="https://blog-images.raibay.com/2020/10/fototapety-tube-kod-binarny.jpg.jpg" />
+    <meta property="article:published_time" content="2020-10-19T08:12:05.000Z" />
+    <meta property="article:modified_time" content="2020-10-19T08:12:05.000Z" />
+    <meta property="article:tag" content="branża IT" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/raibaymarketplace/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Czym jest kompilator?" />
+    <meta name="twitter:description" content="Ojczystym językiem komputerów jest język binarny niezrozumiały dla człowieka. Człowiek programuje w językach programowania, których nie rozumie komputer. Jak się zatem porozumieć?" />
+    <meta name="twitter:url" content="https://blog.raibay.com/czym-jest-kompilator/" />
+    <meta name="twitter:image" content="https://blog-images.raibay.com/2020/10/fototapety-tube-kod-binarny.jpg.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Anna Urlik" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="branża IT" />
+    <meta name="twitter:site" content="@RaiBaycom" />
+    <meta property="og:image:width" content="700" />
+    <meta property="og:image:height" content="495" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "IT BAY News",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog-images.raibay.com/2020/08/raibay-signet--RGB-.jpg",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Anna Urlik",
+        "url": "https://blog.raibay.com/author/anna/",
+        "sameAs": []
+    },
+    "headline": "Czym jest kompilator?",
+    "url": "https://blog.raibay.com/czym-jest-kompilator/",
+    "datePublished": "2020-10-19T08:12:05.000Z",
+    "dateModified": "2020-10-19T08:12:05.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://blog-images.raibay.com/2020/10/fototapety-tube-kod-binarny.jpg.jpg",
+        "width": 700,
+        "height": 495
+    },
+    "keywords": "branża IT",
+    "description": "Ojczystym językiem komputerów jest język binarny niezrozumiały dla człowieka. Człowiek programuje w językach programowania, których nie rozumie komputer. Jak się zatem porozumieć?",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.raibay.com/"
+    }
+}
+    </script>
+
+    <script src="/public/ghost-sdk.min.js?v=17c3a40496"></script>
+<script>
+ghost.init({
+	clientId: "ghost-frontend",
+	clientSecret: "eae5c4b08b3f"
+});
+</script>
+    <meta name="generator" content="Ghost 2.4" />
+    <link rel="alternate" type="application/rss+xml" title="IT BAY News" href="https://blog.raibay.com/rss/" />
+
+</head>
+<body class="post-template tag-branza-it">
+
+    <div class="site-wrapper">
+
+        
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+                <a class="site-nav-logo" href="https://blog.raibay.com"><img src="https://blog-images.raibay.com/2020/08/raibay-signet--RGB-.jpg" alt="IT BAY News" /></a>
+            <ul class="nav" role="menu">
+    <li class="nav-raibay" role="menuitem"><a href="https://raibay.com/">RaiBay</a></li>
+    <li class="nav-it-bay-news" role="menuitem"><a href="https://blog.raibay.com/">IT BAY News</a></li>
+</ul>
+
+    </div>
+    <div class="site-nav-right">
+        <div class="social-links">
+                <a class="social-link social-link-fb" href="https://www.facebook.com/raibaymarketplace/" title="Facebook" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+</a>
+                <a class="social-link social-link-tw" href="https://twitter.com/RaiBaycom" title="Twitter" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+</a>
+        </div>
+            <a class="subscribe-button" href="#subscribe">Subscribe</a>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer">
+    <div class="inner">
+
+        <article class="post-full post tag-branza-it ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="2020-10-19">19 October 2020</time>
+                        <span class="date-divider">/</span> <a href="/tag/branza-it/">branża IT</a>
+                </section>
+                <h1 class="post-full-title">Czym jest kompilator?</h1>
+            </header>
+
+            <figure class="post-full-image" style="background-image: url(https://blog-images.raibay.com/2020/10/fototapety-tube-kod-binarny.jpg.jpg)">
+            </figure>
+
+            <section class="post-full-content">
+                <div class="post-content">
+                    <p>Komputery nie mówią po angielsku. Nie mówią też po chińsku, niemiecku, hiszpańsku. Nie posługują się one żadnym językiem ludzkim. Pomimo tego w jaki sposób kontaktuje się z nami Siri lub Alexa, komputery i inne gadżety posiadają swój własny, binarny język, niezrozumiały dla człowieka. </p><p>To oznacza, że jeśli chcesz zaprogramować komputer, musisz porozumieć się z nim w jego języku, ponieważ ten nie zna Twojego. Język ojczysty komputera, jedyny jaki zna, wygląda tak: </p><p>                      00110101101101011101010101010101110001010101011</p><p>… i tak dalej, i tak dalej. Dokładnie tak, same zera i jedynki - żadnych przecinków, spacji, czy kolorowych obrazków. Elementy te znane są jako bity (ang. bits), określenie to powstało z połączenia słów “binary digits”, oznaczających “cyfry binarne”. </p><p>Zmiana kolejności bitów sprawi, że komputer wykona inne czynności. Twoim zadaniem, jako programisty, jest ustalenie właściwej kolejności. Powodzenia. </p><p>W czasach, gdy programowanie jeszcze raczkowało, polegało ono właśnie na ustawianiu zer i jedynek w odpowiedniej kolejności. Ze względu na to, iż był to bardzo powolny proces, a błędy występowały na każdym kroku, podjęto decyzję by go skrócić i ułatwić pracę programistom wymyślając coś, co nazywamy językami programowania. Obecnie jest ich bardzo wiele:  Java, C++, FORTRAN, Python, BASIC, Ada, Pascal, Rust, Swift i dziesiątki innych. </p><p>Większość programistów dobrze "mówi" w jednym lub dwóch językach programowania, a przy okazji może posiadać niewielką wiedzę na temat innych języków. Podobnie jak w przypadku języków ludzkich, wśród programistów istnieje tendencja do posiadania ulubionego języka, któremu pozostają wierni. </p><p>Jeśli napiszesz krótki program w języku C, może to wyglądać tak:</p><figure class="kg-card kg-image-card"><img src="https://blog-images.raibay.com/2020/10/obraz-63.png" class="kg-image"></figure><p>Widać różnicę, prawda? Zamiast zer i jedynek pojawiły się prawdziwe słowa, nawet jeśli są to wyrazy, które nie istnieją w normalnym użyciu, takie jak “printf”. Obecne jest również wiele znaków interpunkcyjnych rozrzuconych w różnych miejscach.  Na pewno nie jest to angielski, ale jest o wiele łatwiejszy do odczytania niż wszystkie jedynki i zera. Widać zdecydowaną poprawę. </p><p>Gdybyśmy napisali ten sam kod w języku FORTRAN zamiast C, wyglądałby on tak:</p><figure class="kg-card kg-image-card"><img src="https://blog-images.raibay.com/2020/10/obraz-62.png" class="kg-image"></figure><p>Wygląda on dość podobnie. Tak jak w przypadku pierwszego kodu, kod w FORTRANIE przypomina angielski, jednak różni się od angielskiego, jakiego uczymy się w szkołach. I tak - wszyscy programiści na całym świecie programują w pseudo-angielskich językach programowania, ponieważ języki programistyczne nie są tłumaczone na języki ojczyste - nie ma polskiej wersji językowej C czy FORTRANA.</p><p>Ale co z naszym pierwotnym problemem? Jeśli komputery potrafią zrozumieć tylko jedynki i zera, jaki jest pożytek z języków programowania takich jak C? Tutaj na scenę wchodzi kompilator. </p><p><strong>Kompilator jest tłumaczem.</strong> Tłumaczy on angielskie polecenia na zera i jedynki, które nasz komputer jest w stanie zrozumieć. Jest to jednak tłumaczenie jednokierunkowe, ponieważ kompilator nie jest w stanie przekonwertować zer i jedynek z powrotem na język C lub jakikolwiek inny język programowania, co oznacza, że kompilator nie pomoże Ci zrozumieć kodu po kompilacji. </p><p>Wiele firm tworzy i sprzedaje kompilatory, natomiast istnieją także wersje darmowe. Różne kompilatory różnie tłumaczą ten sam program, tak samo jak różne słowniki mogą definiować te same słowa na nieco inne sposoby. Nie ma w tym nic złego, o ile wynik, który otrzymamy na koniec będzie taki sam. </p><p>Kiedy dajesz komuś wskazówki, takie jak: "Idź do znaku stopu, a następnie skręć w lewo", oznacza to to samo co “Skręć w lewo na znaku stopu". Mimo, że wskazówki są sformułowane inaczej, są one w rzeczywistości takie same. To samo odnosi się do programów komputerowych. Program można napisać na wiele sposobów, tak samo jak istnieje wiele sposobów przetłumaczenia kodu na zera i jedynki. Niektóre kompilatory starają się uzyskać możliwie najkrótsze, najbardziej zwarte tłumaczenie ("Znak stop, potem w lewo."), inne są bardziej obszerne („Jedź tak szybko, jak to możliwe, w kierunku znaku stop, zaciągnij hamulec ręczny, a za hydrantem dodaj gazu i jedź dalej!”).</p><p>Ten sam kompilator może nawet wykonywać oba rodzaje tłumaczeń, a także różne wersje pomiędzy nimi. Kompilację można kontrolować za pomocą opcji kompilacji, tj. poleceń, które mówią kompilatorowi, czy chcesz mieć mały program, szybki program, czy coś pomiędzy.</p><p>Wystarczy użyć kompilatora tylko raz. Po przetłumaczeniu programu, nie ma potrzeby robić tego ponownie, jednak w przypadku dokonania zmian w kodzie, konieczna będzie ponowna kompilacja. </p><figure class="kg-card kg-image-card"><img src="https://blog-images.raibay.com/2020/10/obraz-64.png" class="kg-image"></figure><p><strong>Jednak co w przypadku, gdy kompilator popełni błąd? </strong>Pomyli się w tłumaczeniu i stworzy wadliwy program? Co prawda może do tego dojść, ale zdarza się bardzo rzadko. Kompilatory w dzisiejszych czasach są dość niezawodne, a jeśli twój program nie działa tak, jak zamierzałeś, problem leży na ogół... gdzie indziej. Znacznie częściej to programista popełnia błąd. Na szczęście, kompilatory mogą wyłapać wiele błędów, od prostych literówek do większych problemów. Na przykład, jeśli pominąłeś pierwszą klamrę w programie C (na końcu drugiej linijki w kodzie powyżej), kompilator wyłapie błąd i powiadomi Cię o tym. Nie poprawi on jednak błędów za Ciebie, musisz to zrobić samemu. Ale przynajmniej kompilator wychwycił błąd i przestał próbować tłumaczyć coś, co nie miało dla niego sensu. </p><p>Tym, czego kompilator nie wychwyci są bardziej subtelne błędy - kompilator rozumie to co kazałeś zrobić programowi, nie to co chcesz by robił. Jeśli przypadkowo napiszesz „Help me, world!” zamiast „Hello, world!” Twój kompilator nie może tego naprawić. Zakłada, że ​​zrobiłeś to celowo - i może to zrobiłeś.</p><p>Język programowania, w którym piszesz nazywany jest <strong>kodem źródłowym, </strong>natomiast po przetłumaczeniu go na zera i jedynki, kod ten określa się <strong>kodem wynikowym. </strong>Powyższe programy napisane w C i FORTRANIE są przykładem kodu źródłowego i oba robią w zasadzie to samo.To rodzi interesujące pytanie. Czy można napisać program używając dowolnego języka? W dużej mierze tak. Dwa powyższe programy mogły zostać napisane w Javie, Ruscie lub w jakimkolwiek innym języku i nadal działałyby w ten sam sposób. Do przetłumaczenia kodu napisanego w Ruscie na zera i jedynki użyłbyś innego kompilatora, jednak nie miałoby to żadnej różnicy dla komputera. Po przetłumaczeniu, komputer nie “widzi” kodu źródłowego i nie ma dla niego znaczenia, w jakim języku został on pierwotnie napisany. Języki programowania powstały dla wygody programisty, nie maszyny. </p><p>Czy różne komputery i różne mikroprocesory mówią różnymi językami? Nie do końca, chociaż w pewnym sensie tak - jest to trochę skomplikowane. Żaden komputer nie rozumie języków programowania, dlatego też mamy kompilatory. To, w jakim języku został napisany program nie ma znaczenia, ponieważ nie ma żadnego związku między językiem kodu źródłowego a sprzętem.</p><p>Nie jest tak, że procesory Intel x86 uruchamiają tylko programy Java, a procesory ARM tylko programy napisane w Swifcie. Języki programowania są neutralne i vice versa - każdy procesor obsługuje dowolny język, ponieważ to kompilator tłumaczy kod źródłowy na binarny kod wynikowy, który jest zrozumiały dla procesora. Mimo to, różne procesory mają różne języki binarne, które są dla nich zrozumiałe. Nazywa się to standardową architekturą przemysłową lub ISA. Na przykład wszystkie chipy oparte na architekturze ARM używają tego samego zestawu instrukcji. Ta sama sekwencja zer i jedynek będzie działać na każdym procesorze z architekturą ARM, ale nie zadziałają na procesorach Intel lub AMD x86, które mają inną ISA. Podobnie binarny kod wynikowy nie zadziała na mikroprocesorze PIC, procesorze MIPS, RISC-V ani żadnym innym ISA. Kod źródłowy jest neutralny dla procesora; kod wynikowy nie jest.</p><p>Dlatego ważne jest, aby mieć dostęp do kodu źródłowego programu. Pozwala to na przetłumaczenie jednego programu na wiele różnych procesorów, nawet tych z różnymi ISA. Kod źródłowy pozwala na nieskończoną ilość tłumaczeń, nawet dla przyszłych procesorów, które nie zostały jeszcze wynalezione. Mając kod źródłowy i odpowiedni kompilator, możesz przetłumaczyć dowolny program do uruchomienia na dowolnym komputerze. Możesz również edytować, zmieniać i aktualizować program, a następnie przekompilować (przetłumaczyć) go ponownie, aby utworzyć nowy kod wynikowy.</p><figure class="kg-card kg-image-card"><img src="https://blog-images.raibay.com/2020/10/obraz-67.png" class="kg-image"></figure><p>To część uroku stojącego za ruchem oprogramowania „open source”. Programiści swobodnie udostępniają swój kod źródłowy, aby inni programiści mogli (a) zobaczyć, jak on działa, (b) znaleźć błędy, których nie wyłapał twórca kodu, (c) dodawać własne ulepszenia do kodu źródłowego, skompilować go, i rozpowszechniać zaktualizowaną wersję programu.  I to wszystko bez wydawania żadnych pieniędzy. Bez kodu źródłowego żadna z tych czynności nie byłaby możliwa. </p><p>Kontrola kodu źródłowego oznacza kontrolę komercyjną. Większość firm utrzymuje swój kod źródłowy w tajemnicy, tak jak Coca-Cola chroni swój przepis. Oni i tylko oni mogą kompilować swoje programy z kodu źródłowego do kodu wynikowego wymaganego przez różne procesory. Pozwala to firmie kontrolować, gdzie i jak będą działać jej programy.  Microsoft zachowuje kontrolę nad kodem źródłowym dla Windows 10, co oznacza, że tylko Microsoft może decydować, jakie mikroprocesory ISA mogą korzystać z Windows 10. Apple kontroluje kod źródłowy dla MacOS, i tak dalej. Użytkownicy nie mają możliwości uruchomić systemu Windows lub MacOS na dowolnym komputerze, ponieważ nie mają możliwości jego kompilacji. </p><p>Kod źródłowy dla Linuksa jest natomiast dostępny za darmo. Można go skompilować na każdą maszynę, co jest jednym z powodów jego popularności. To samo dotyczy FreeRTOS, Apache, PHP i dziesiątków innych projektów open-source'owych. Oprogramowanie open-source niekoniecznie jest lepsze bądź gorsze od oprogramowania komercyjnego. Są to po prostu różne filozofie dotyczące dystrybucji, wkładu i kontroli.</p><p></p><hr><p>#programowanie #kompilator #jezykbinarny #kodźródłowy #kodwynikowy</p><p><em><a href="https://blog.raibay.com/jestem-po-rozmowie-rekrutacyjnej-i-co-dalej/www.raibay.com">RaiBay</a> - Polish Online Auction for Tech Talents</em></p><p>Follow us: <a href="https://www.linkedin.com/company/raibay/">Linkedin</a>, <a href="https://www.facebook.com/raibaymarketplace/">Facebook</a>, <a href="https://twitter.com/RaiBaycom">Twitter</a> :) </p><p>Join us at raibay.com and/or check our choosen job openings <a href="https://www.raibay.com/positions">https://www.raibay.com/positions</a></p>
+                </div>
+            </section>
+
+            <section class="subscribe-form">
+                <h3 class="subscribe-form-title">Subscribe to IT BAY News</h3>
+                <p>Get the latest posts delivered right to your inbox</p>
+                <form method="post" action="/subscribe/" id="" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com" />
+    </div>
+    <button id="" class="" type="submit"><span>Subscribe</span></button>
+    
+<script>
+    (function(g,h,o,s,t){
+        var buster = function(b,m) {
+            h[o]('input.'+b).forEach(function (i) {
+                i.value=i.value || m;
+            });
+        };
+        buster('location', g.location.href);
+        buster('referrer', h.referrer);
+    })(window,document,'querySelectorAll','value');
+</script>
+
+</form>
+
+
+            </section>
+
+            <footer class="post-full-footer">
+
+
+                    
+<section class="author-card">
+        <span class="avatar-wrapper"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</span>
+    <section class="author-card-content">
+        <h4 class="author-card-name"><a href="/author/anna/">Anna Urlik</a></h4>
+            <p>Read <a href="/author/anna/">more posts</a> by this author.</p>
+    </section>
+</section>
+<div class="post-full-footer-right">
+    <a class="author-card-button" href="/author/anna/">Read More</a>
+</div>
+
+
+            </footer>
+
+
+        </article>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = "https://blog.raibay.com/czym-jest-kompilator/";  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "ghost-5f89903526acd10021f7f9a5"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://blog.raibay.com.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+</main>
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+                <article class="read-next-card"
+                            style="background-image: url(https://blog-images.raibay.com/2018/10/bg3.jpg)"
+                >
+                    <header class="read-next-card-header">
+                        <small class="read-next-card-header-sitetitle">&mdash; IT BAY News &mdash;</small>
+                        <h3 class="read-next-card-header-title"><a href="/tag/branza-it/">branża IT</a></h3>
+                    </header>
+                    <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                    <div class="read-next-card-content">
+                        <ul>
+                            <li><a href="/umiejetnosci-pozadane-w-branzy-it/">Umiejętności pożądane w branży IT</a></li>
+                            <li><a href="/ktory-komunikator-jest-lepszy-w-pracy-zespolowej-yammer-czy-microsoft-teams/">Który komunikator jest lepszy w pracy zespołowej - Yammer czy Microsoft Teams?</a></li>
+                            <li><a href="/sztuczna-inteligencja-w-duolingo/">Sztuczna inteligencja w Duolingo</a></li>
+                        </ul>
+                    </div>
+                    <footer class="read-next-card-footer">
+                        <a href="/tag/branza-it/">See all 47 posts →</a>
+                    </footer>
+                </article>
+
+                <article class="post-card post tag-hash-covid-19 tag-hash-homeoffice tag-hash-domowebiuro tag-hash-pracazdomu">
+        <a class="post-card-image-link" href="/jak-na-dluzsza-mete-stworzyc-biuro-do-pracy-w-domu/">
+            <div class="post-card-image" style="background-image: url(https://blog-images.raibay.com/2020/10/9624_iStock-1177844431_copy.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="/jak-na-dluzsza-mete-stworzyc-biuro-do-pracy-w-domu/">
+            <header class="post-card-header">
+                <h2 class="post-card-title">Jak na dłuższą metę stworzyć ‘biuro’ do pracy w domu?</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Domowe biuro można stworzyć w niemal każdych warunkach. Pamiętając o wymienionych w naszym artykule czynnikach, ułatwimy sobie pracę z domu przy równoczesnym zachowaniu zdrowia.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Eliza Sicińska
+                    </div>
+
+                        <a href="/author/eliza/" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+                </li>
+            </ul>
+
+            <span class="reading-time">6 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+                <article class="post-card post tag-hr tag-zespol">
+        <a class="post-card-image-link" href="/poradnik-zarzadzania-roczna-ocena-pracownika/">
+            <div class="post-card-image" style="background-image: url(https://blog-images.raibay.com/2020/10/https-_specials-images.forbesimg.com_dam_imageserve_1126892704_960x0.jpg-fit-scale.jpg)"></div>
+        </a>
+    <div class="post-card-content">
+        <a class="post-card-content-link" href="/poradnik-zarzadzania-roczna-ocena-pracownika/">
+            <header class="post-card-header">
+                    <span class="post-card-tags">HR</span>
+                <h2 class="post-card-title">Poradnik zarządzania: roczna ocena pracownika</h2>
+            </header>
+            <section class="post-card-excerpt">
+                <p>Tylko 14% pracowników zdecydowanie zgadza się, że ocena wyników ich pracy motywuje ich do działania, a aż 95% menedżerów nie jest zadowolonych ze strategii oceny pracowników, którą stosują.</p>
+            </section>
+        </a>
+        <footer class="post-card-meta">
+
+            <ul class="author-list">
+                <li class="author-list-item">
+
+                    <div class="author-name-tooltip">
+                        Anna Urlik
+                    </div>
+
+                        <a href="/author/anna/" class="static-avatar author-profile-image"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M3.513 18.998C4.749 15.504 8.082 13 12 13s7.251 2.504 8.487 5.998C18.47 21.442 15.417 23 12 23s-6.47-1.558-8.487-4.002zM12 12c2.21 0 4-2.79 4-5s-1.79-4-4-4-4 1.79-4 4 1.79 5 4 5z" fill="#FFF"/></g></svg>
+</a>
+                </li>
+            </ul>
+
+            <span class="reading-time">5 min read</span>
+
+        </footer>
+    </div>
+</article>
+
+        </div>
+    </div>
+</aside>
+
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://blog.raibay.com">
+                <img src="https://blog-images.raibay.com/2018/10/android-chrome-192x192.png" alt="IT BAY News icon" />
+            <span>IT BAY News</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Czym jest kompilator?</div>
+    <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Czym%20jest%20kompilator%3F&amp;url=https://blog.raibay.com/czym-jest-kompilator/"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.raibay.com/czym-jest-kompilator/"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+        </a>
+    </div>
+    <progress id="reading-progress" class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://blog.raibay.com">IT BAY News</a> &copy; 2022</section>
+                <nav class="site-footer-nav">
+                    <a href="https://blog.raibay.com">Latest Posts</a>
+                    <a href="https://www.facebook.com/raibaymarketplace/" target="_blank" rel="noopener">Facebook</a>
+                    <a href="https://twitter.com/RaiBaycom" target="_blank" rel="noopener">Twitter</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <div id="subscribe" class="subscribe-overlay">
+        <a class="subscribe-overlay-close" href="#"></a>
+        <div class="subscribe-overlay-content">
+                <img class="subscribe-overlay-logo" src="https://blog-images.raibay.com/2020/08/raibay-signet--RGB-.jpg" alt="IT BAY News" />
+            <h1 class="subscribe-overlay-title">Subscribe to IT BAY News</h1>
+            <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
+            <form method="post" action="/subscribe/" id="" class="">
+    <input class="confirm" type="hidden" name="confirm"  /><input class="location" type="hidden" name="location"  /><input class="referrer" type="hidden" name="referrer"  />
+
+    <div class="form-group">
+        <input class="subscribe-email" type="email" name="email" placeholder="youremail@example.com" />
+    </div>
+    <button id="" class="" type="submit"><span>Subscribe</span></button>
+    
+<script>
+    (function(g,h,o,s,t){
+        var buster = function(b,m) {
+            h[o]('input.'+b).forEach(function (i) {
+                i.value=i.value || m;
+            });
+        };
+        buster('location', g.location.href);
+        buster('referrer', h.referrer);
+    })(window,document,'querySelectorAll','value');
+</script>
+
+</form>
+
+
+        </div>
+    </div>
+
+    <script>
+        var images = document.querySelectorAll('.kg-gallery-image img');
+        images.forEach(function (image) {
+            var container = image.closest('.kg-gallery-image');
+            var width = image.attributes.width.value;
+            var height = image.attributes.height.value;
+            var ratio = width / height;
+            container.style.flex = ratio + ' 1 0%';
+        })
+    </script>
+
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="/assets/built/jquery.fitvids.js?v=17c3a40496"></script>
+
+
+    <script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+$(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('#reading-progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+
+});
+</script>
+
+
+    
+
+</body>
+</html>
